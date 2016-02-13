@@ -2,11 +2,12 @@ angular.module('shortly.services', [])
 
 
 .factory('Links', function ($http) {
-  // Your code here
   var data = {};
+  var getLinks = function() {};
 
   return {
-    data: data
+    data: data,
+    getLinks: getLinks
   };
 })
 .factory('Auth', function ($http, $location, $window) {
