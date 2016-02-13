@@ -21,13 +21,15 @@ var paths = {
 // client side code will automagically refresh your page
 // with the new changes
 gulp.task('start', ['serve'],function () {
-  bs({
-    notify: true,
-    // address for server,
-    injectChanges: true,
-    files: paths.scripts.concat(paths.html, paths.styles),
-    proxy: 'localhost:8000'
-  });
+  setTimeout(function () {
+    bs({
+      notify: true,
+      // address for server,
+      injectChanges: true,
+      files: paths.scripts.concat(paths.html, paths.styles),
+      proxy: 'localhost:8000'
+    });
+  }, 1000);
 });
 
 gulp.task('karma', shell.task([

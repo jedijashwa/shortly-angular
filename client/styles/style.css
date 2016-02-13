@@ -48,6 +48,10 @@ h1 {
   background-color: #ccc;
 }
 
+li .logout {
+  float: right;
+}
+
 #container {
   clear: both;
   margin-top: 10px;

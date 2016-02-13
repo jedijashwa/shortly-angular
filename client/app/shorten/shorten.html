@@ -1,6 +1,14 @@
+<div ng-include='navigation'></div>
 <div id='container'>
-<!-- Your code here -->
-
+  <form>
+    <!--TODO replace ng pattern and ng require with our own functions in shorten.js -->
+    <!--TODO add conditional formatting -->
+    <input name='uri' ng-model='link.url' ng-pattern='rValidUrl' ng-required='true'>
+    <!--TODO change ng-disabled to use our functions-->
+    <button ng-click='addLink(link)' ng-disabled='uri.$invalid'>Add</button>
+  </form>
+  <!--TODO update or add ng-show for both of these using our functions-->
+  <div ng-show='true;'>URL is invalid {{ link.url }} </div>
+  <div >Please enter a URL</div>
+  <div id='list' ng-include='listTemplate'></div>
 </div>
-
-
