@@ -1,7 +1,13 @@
 angular.module('shortly.services', [])
 
+
 .factory('Links', function ($http) {
   // Your code here
+  var data = {};
+
+  return {
+    data: data
+  };
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
@@ -38,6 +44,7 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
+    console.log('signed out');
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };
