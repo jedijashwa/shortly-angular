@@ -18,6 +18,7 @@ angular.module('shortly.shorten', [])
     })
     .then(function (result){
       $scope.link = {};
+      $scope.shortenForm.$setPristine();
       $scope.data.links.push(result.data);
     });
   };
