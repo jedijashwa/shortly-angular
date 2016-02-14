@@ -1,14 +1,10 @@
 <div ng-include='navigation'></div>
 <div id='container'>
-  <form>
-    <!--TODO replace ng pattern and ng require with our own functions in shorten.js -->
-    <!--TODO add conditional formatting -->
-    <input name='uri' ng-model='link.url' ng-pattern='rValidUrl' ng-required='true'>
-    <!--TODO change ng-disabled to use our functions-->
-    <button ng-click='addLink(link)' ng-disabled='uri.$invalid'>Add</button>
+  <form name='shortenForm' ng-submit='addLink(link)' novalidate>
+    <input name='link' type='url' ng-model='link.url' placeholder='Enter URL to Shorten' required ng-class='{"error" : shortenForm.$invalid && shortenForm.$dirty}'/>
+    <button ng-disabled='uri.$invalid'>Add</button>
   </form>
-  <!--TODO update or add ng-show for both of these using our functions-->
-  <div ng-show='true;'>URL is invalid {{ link.url }} </div>
-  <div >Please enter a URL</div>
+  <div ng-show='shortenForm.link.$error.url && shortenForm.$dirty'>URL is invalid {{ link.url }} </div>
+  <div ng-if='shortenForm.link.$error.required && shortenForm.$dirty'>Please enter a URL</div>
   <div id='list' ng-include='listTemplate'></div>
 </div>
